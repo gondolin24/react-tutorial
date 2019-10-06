@@ -1,30 +1,32 @@
-import React, {useState, useEffect} from 'react';
-import {Link} from "react-router-dom";
+import React, {useEffect, useState} from 'react';
 
-function Shop() {
+function Item({match}) {
 
-    const [items, setItem] = useState([]);
+    const [item, setItem] = useState({
+        item:{
+            images:{
+                transparent:{}
+            }
+        }
+    });
 
     useEffect(() => {
         fetchItems();
-    }, []);
+    });
 
     const fetchItems = async () => {
-        const items = apiCall;
-        console.log(items.items);
-        setItem(items.items)
+        const details = apiCall.items.filter(i=>i.itemid===match.params.id)[0];
+        console.log(details);
+        setItem(details)
     };
-
-
 
     return (
         <div>
-            {items.map(item => (
-                <h1 key={item.itemid}>
-                    <Link to={`/shop/${item.itemid}`}>{item.name}</Link>
-                </h1>
-                ))
-            }
+            <h1>
+                {item.name}
+            </h1>
+            <h4>rarity: {item.item.rarity}</h4>
+            <img src={item.item.images.transparent} alt="" />
         </div>
     );
 }
@@ -1138,4 +1140,4 @@ const apiCall = {
     }]
 };
 
-export default Shop;
+export default Item;
