@@ -76,7 +76,10 @@ fabric.properties
 
 # testing
 /coverage
+node_modules/
+/node_modules/
 
+*/node_modules/*
 # production
 /build
 
