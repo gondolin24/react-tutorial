@@ -11,3 +11,4 @@ Link to Video : https://www.youtube.com/watch?v=CVpUuw9XSjY
 - [x] Create app provider
   
 #### Nice screen shots ####  
+![alt text](https://raw.githubusercontent.com/gondolin24/react-tutorial/master/redux-introduction-react/learn-redux/public/flow.png)
