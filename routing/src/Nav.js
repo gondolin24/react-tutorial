@@ -7,9 +7,13 @@ function Nav() {
     };
 
     return (
-        <nav>
-            <h3>Logo</h3>
+        <nav> <Link style={navStyle}  to="/">
+            <h3>HOME</h3>
+        </Link>
+
             <ul className="nav-links">
+
+
                 <Link style={navStyle}  to="/about">
                     <li>About</li>
                 </Link>

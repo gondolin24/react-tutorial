@@ -19,14 +19,15 @@ function App() {
               </Switch>
 
           </div>
+
       </Router>
 
-  );
+);
 }
 
 const Home = () => (
 <div>
-    <h1>Home page</h1>
+    <img src="https://www.imglicensing.com/media/1991/fortnite.jpg?center=0.031746031746031744,0.50267379679144386&mode=crop&width=1920&height=800&rnd=131666993100000000&quality=70" alt="" />
 </div>
 );
 
