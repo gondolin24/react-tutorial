@@ -30,9 +30,9 @@ cool routing feature
 ```
 ![alt text](https://raw.githubusercontent.com/gondolin24/react-tutorial/master/routing/public/main.JPG)
 top links have been routed to a component
-### About page ###
+#### About page ####
 ![alt text](https://raw.githubusercontent.com/gondolin24/react-tutorial/master/routing/public/about.JPG)
-### Shop Page ###
+#### Shop Page ####
 In the shop page we are adding a link to a unique ID given by the api.
 ```
     return (
@@ -47,7 +47,7 @@ In the shop page we are adding a link to a unique ID given by the api.
     );
 ```
 ![alt text](https://raw.githubusercontent.com/gondolin24/react-tutorial/master/routing/public/shop.JPG)
-### Fortnight info ###
+#### Fortnight info ####
 we are adding a route in app.js 
 ```
   <Route path="/shop/:id" component={Item}/>
@@ -68,3 +68,29 @@ and getting the id through smoething called MATCH => which gives us props
 ```
 
 ![alt text](https://raw.githubusercontent.com/gondolin24/react-tutorial/master/routing/public/singlepage.JPG)
+
+#### Sample API respone ####
+```
+{
+        "itemid": "9614e95-6d27565-b685f78-aeaa9c4",
+        "name": "Snakepit",
+        "description": "Fearless.",
+        "cost": "???",
+        "item": {
+            "image": "https://fortnite-public-files.theapinetwork.com/outfit/47afe930d4077d2ec7df0a951b3fd3fd.png",
+            "images": {
+                "transparent": "https://fortnite-public-files.theapinetwork.com/outfit/47afe930d4077d2ec7df0a951b3fd3fd.png",
+                "background": "https://fortnite-public-files.theapinetwork.com/image/9614e95-6d27565-b685f78-aeaa9c4.png",
+                "information": "https://fortnite-public-files.theapinetwork.com/image/9614e95-6d27565-b685f78-aeaa9c4/item.png",
+                "featured": {"transparent": "https://fortnite-public-files.theapinetwork.com/featured/9614e95-6d27565-b685f78-aeaa9c4.png"}
+            },
+            "captial": "outfit",
+            "type": "outfit",
+            "rarity": "uncommon",
+            "obtained": "???",
+            "obtained_type": "vbucks"
+        },
+        "ratings": {"avgStars": 0, "totalPoints": 0, "numberVotes": 0}
+    }
+```    
+    
