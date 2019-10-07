@@ -2,17 +2,6 @@ import React, {useEffect, useState} from 'react';
 
 function Item({match}) {
 
-    const [item, setItem] = useState({
-        item:{
-            images:{
-                transparent:{}
-            }
-        }
-    });
-
-    useEffect(() => {
-        fetchItems();
-    });
 
     const fetchItems = async () => {
         const details = apiCall.items.filter(i=>i.itemid===match.params.id)[0];
@@ -20,6 +9,18 @@ function Item({match}) {
         setItem(details)
     };
 
+
+
+    const [item, setItem] = useState({
+        item:{
+            images:{
+                transparent:{}
+            }
+        }
+    });
+    useEffect(() => {
+        fetchItems();
+    });
     return (
         <div>
             <h1>

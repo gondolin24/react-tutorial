@@ -15,8 +15,6 @@ function Shop() {
         setItem(items.items)
     };
 
-
-
     return (
         <div >
             {items.map(item => (
