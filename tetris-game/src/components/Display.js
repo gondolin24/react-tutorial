@@ -1,6 +1,10 @@
 import React from 'react'
+import {StyledDisplay} from "./styles/StyledDisplay";
 
-const Diaplay =({gameOver, text})=>(
-<div>{text}</div>
-)
-export default Diaplay;
+const Display = ({gameOver, text}) => (
+    <StyledDisplay gameOver={gameOver}>
+
+        {text}
+    </StyledDisplay>
+);
+export default Display;
