@@ -1,2 +1,2 @@
 # react-tutorial
-consolidated place for react tutorials 
+consolidated place for react tutorials and projects
