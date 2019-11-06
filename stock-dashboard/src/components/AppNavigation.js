@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import {makeStyles, useTheme} from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
@@ -17,6 +17,10 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
+import Transactions from "./Transactions";
+import NetWorth from "./NetWorth";
+import Portfolio from "./Portfolio";
 
 const drawerWidth = 240;
 
@@ -91,7 +95,8 @@ export function PersistentDrawerLeft() {
 
     return (
         <div className={classes.root}>
-            <CssBaseline />
+            <Router>
+            <CssBaseline/>
             <AppBar
                 position="fixed"
                 className={clsx(classes.appBar, {
@@ -106,7 +111,7 @@ export function PersistentDrawerLeft() {
                         edge="start"
                         className={clsx(classes.menuButton, open && classes.hide)}
                     >
-                        <MenuIcon />
+                        <MenuIcon/>
                     </IconButton>
                     <Typography variant="h6" noWrap>
                         Persistent drawer
@@ -124,35 +129,35 @@ export function PersistentDrawerLeft() {
             >
                 <div className={classes.drawerHeader}>
                     <IconButton onClick={handleDrawerClose}>
-                        {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+                        {theme.direction === 'ltr' ? <ChevronLeftIcon/> : <ChevronRightIcon/>}
                     </IconButton>
                 </div>
-                <Divider />
+                <Divider/>
                 <List>
-                    {['My Portfolio', 'Net Worth', 'Transactions', 'Performance'].map((text, index) => (
+                    {['Portfolio', 'NetWorth', 'Transactions'].map((text, index) => (
+                        <Link to={"/" + text}>
                         <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItem>
+                                <ListItemIcon>{index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}</ListItemIcon>
+                                <ListItemText primary={text}/>
+                        </ListItem></Link>
                     ))}
                 </List>
-                <Divider />
-                <List>
-                    {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItem>
-                    ))}
-                </List>
+                <Divider/>
             </Drawer>
             <main
                 className={clsx(classes.content, {
                     [classes.contentShift]: open,
                 })}>
-                <div className={classes.drawerHeader} />
-                <h2>HelloM</h2>
+                <div className={classes.drawerHeader}/>
+
+                    <Switch>
+                        <Route path="/Transactions" component={Transactions}/>
+                        <Route path="/NetWorth" component={NetWorth}/>
+                        <Route path="/Portfolio" component={Portfolio}/>
+                        <Route Path="/" component={Portfolio}/>
+                    </Switch>
             </main>
+            </Router>
         </div>
     );
 }
